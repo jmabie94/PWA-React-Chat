@@ -15,10 +15,10 @@ function App() {
 
   return (
     <Router>
-      <div className='App'>
+      <div className="App">
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={
               <Home
                 username={username} // Add this
@@ -30,7 +30,7 @@ function App() {
             }
           />
           <Route
-            path='/chat'
+            path="/chat"
             element={<Chat username={username} room={room} socket={socket} />}
           />
         </Routes>
