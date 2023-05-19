@@ -1,33 +1,17 @@
 // client/src/App.js
 
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react'; // Add this
 import Home from './pages/home';
 import Chat from './pages/chat';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import io from 'socket.io-client';
+import io from 'socket.io-client'; // Add this
 
-// chatgpt refactor, heroku deployed but could not "GET '/'" route cause it wasn't local.
-// the secondary refactor replaces this with the refactor with the useState/useEffect io() logic.
-// const serverURL = process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:4000';
-// const socket = io.connect(serverURL);
+const socket = io.connect('http://localhost:4000'); // Add this -- our server will run on port 4000, so we connect to it from here
 
 function App() {
-  const [username, setUsername] = useState('');
-  const [room, setRoom] = useState('');
-
-  // another chatgpt refactor, adding a useEffect to change the socket connection
-  const [socket, setSocket] = useState(null);
-
-  useEffect(() => {
-    const newSocket = io();
-    setSocket(newSocket);
-
-    return () => {
-      newSocket.disconnect();
-    }
-  }, []);
-  // chatgpt refactor ends here
+  const [username, setUsername] = useState(''); // Add this
+  const [room, setRoom] = useState(''); // Add this
 
   return (
     <Router>
@@ -37,11 +21,11 @@ function App() {
             path="/"
             element={
               <Home
-                username={username}
-                setUsername={setUsername}
-                room={room}
-                setRoom={setRoom}
-                socket={socket}
+                username={username} // Add this
+                setUsername={setUsername} // Add this
+                room={room} // Add this
+                setRoom={setRoom} // Add this
+                socket={socket} // Add this
               />
             }
           />

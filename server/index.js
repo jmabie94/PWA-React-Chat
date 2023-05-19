@@ -22,10 +22,10 @@ let chatRoom = ''; // E.g. javascript, node,...
 let allUsers = []; // All users in current chat room
 
 // Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
-// chatgpt suggests switching origin to * wildcard rather than 3000
+// undoing chatgpt refactor
 const io = new Server(server, {
   cors: {
-    origin: '*',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
   },
 });
@@ -94,8 +94,4 @@ io.on('connection', (socket) => {
   });
 });
 
-// chatgpt refactor
-const port = process.env.PORT || 4000;
-server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+server.listen(4000, () => 'Server is running on port 4000');
