@@ -93,4 +93,8 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(4000, () => 'Server is running on port 4000');
+//server.listen(4000, () => 'Server is running on port 4000');
+const port = process.env.REACT_APP_SERVER_PORT || 4000;
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
