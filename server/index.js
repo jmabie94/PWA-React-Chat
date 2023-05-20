@@ -71,13 +71,13 @@ io.on('connection', (socket) => {
         .catch((err) => console.log(err));
     });
 
-    // Get last 100 messages sent in the chat room
-    harperGetMessages(room)
-      .then((last100Messages) => {
-        // console.log('latest messages', last100Messages);
-        socket.emit('last_100_messages', last100Messages);
-      })
-      .catch((err) => console.log(err));
+   //Get last 100 messages sent in the chat room
+      harperGetMessages(room)
+        .then((last100Messages) => {
+          // console.log('latest messages', last100Messages);
+          socket.emit('last_100_messages', last100Messages);
+        })
+        .catch((err) => console.log(err));
   });
 
   socket.on('disconnect', () => {

@@ -2,9 +2,9 @@
   "name": "pwa-react-chat-app",
   "version": "2.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "concurrently \"cd server && npm run dev\" \"cd client && npm start\"",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
