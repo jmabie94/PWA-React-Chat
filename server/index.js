@@ -41,8 +41,8 @@ app.use((req, res, next) => {
   next();
 });
 
-console.log('serverUrl :>> ', serverUrl);
-console.log('corsPort :>> ', corsPort);
+console.log('io serverUrl :>> ', serverUrl);
+console.log('io corsPort :>> ', corsPort);
 
 // Add a user to a room
 // Listen for when the client connects via socket.io-client
@@ -109,7 +109,7 @@ io.on('connection', (socket) => {
 });
 
 //server.listen(4000, () => 'Server is running on port 4000');
-const port = process.env.REACT_APP_SERVER_PORT || 4000;
+const port = process.env.PORT || 4000;
 server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on PORT ${port}`);
 });

@@ -9,7 +9,7 @@ import io from 'socket.io-client'; // Add this
 
 //const socket = io.connect('http://localhost:4000'); // Add this -- our server will run on port 4000, so we connect to it from here
 const serverUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost'; // Get the server URL from environment variable
-const port = process.env.REACT_APP_SERVER_PORT || 4000; // Get the server port from environment variable or use a default value
+const port = process.env.PORT || 4000; // Get the server port from environment variable or use a default value
 
 const socket = io(`${serverUrl}:${port}`); 
 
