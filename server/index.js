@@ -33,6 +33,9 @@ const io = new Server(server, {
   },
 });
 
+console.log('serverUrl :>> ', serverUrl);
+console.log('corsPort :>> ', corsPort);
+
 // Add a user to a room
 // Listen for when the client connects via socket.io-client
 io.on('connection', (socket) => {
