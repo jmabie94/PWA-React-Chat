@@ -33,6 +33,14 @@ const io = new Server(server, {
   },
 });
 
+// Set up CORS headers
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // Allow requests from all origins
+  res.header('Access-Control-Allow-Methods', 'GET, POST'); // Allow GET and POST methods
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 console.log('serverUrl :>> ', serverUrl);
 console.log('corsPort :>> ', corsPort);
 
